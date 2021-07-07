@@ -39,7 +39,10 @@ minima:
   social_links:
     twitter: downeg2
     github:  downeg
-    
+ 
+# Google Analytics
+google_analytics: G-7PE3TLME6D
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
