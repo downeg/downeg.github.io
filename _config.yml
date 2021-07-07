@@ -32,7 +32,7 @@ url: "https://downeg.xyz" # the base hostname & protocol for your site, e.g. htt
 # theme: minima
 remote_theme: jekyll/minima
 plugins:
-  - jekyll-feed
+#  - jekyll-feed
   
 minima:
   skin: dark
