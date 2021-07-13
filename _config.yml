@@ -37,7 +37,7 @@ plugins:
 minima:
   skin: dark
   social_links:
-    twitter: downeg2
+    twitter: _downeg
     github:  downeg
  
 # Google Analytics
