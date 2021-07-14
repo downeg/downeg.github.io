@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "THM RootMe"
+title:  "THM writeup - Root Me"
 date:   2021-07-05 15:09:43 +0100
 categories: post update
 ---
