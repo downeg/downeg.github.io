@@ -67,3 +67,34 @@ Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in mi
 [STATUS] attack finished for 10.10.86.99 (waiting for children to complete tests)
 1 of 1 target successfully completed, 1 valid password found
 ```
+
+We can then log into the FTP server using the username and password, and we find three files, a TXT file, a JPEG and a PNG.
+
+Looking at the TXT file we have a hint to some data being hidden in one of the image files, possibly the SSH password for the account 'chris'.
+
+```
+$ cat To_agentJ.txt 
+Dear agent J,
+
+All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn't be a problem for you.
+
+From,
+Agent C
+```
+
+Sounds like a bit of steganography, possibly even an SSH password hidden in one of the images, so using [foremost](https://en.wikipedia.org/wiki/Foremost_(software)) the following data can be retrieved from cutie.png.
+
+```
+ foremost ./cutie.png 
+Processing: ./cutie.png
+|foundat=To_agentR.txt�
+*|
+
+$ ls output/
+audit.txt  png  zip
+
+$ ls output/zip/
+00000067.zip
+
+$
+$
