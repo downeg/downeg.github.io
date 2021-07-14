@@ -6,7 +6,7 @@ categories: post update
 ---
 
 
-Writeup on the TryHackMe room RootMe.
+Writeup on the TryHackMe room "Root Me".
 
 [Link to room.](https://tryhackme.com/room/rrootme)
 
