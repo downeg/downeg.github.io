@@ -87,7 +87,7 @@ Sounds like a bit of steganography, possibly even an SSH password hidden in one 
 ```
  foremost ./cutie.png 
 Processing: ./cutie.png
-|foundat=To_agentR.txt�
+|foundat=To_agentR.txt
 *|
 
 $ ls output/
@@ -98,3 +98,4 @@ $ ls output/zip/
 
 $
 $
+```
