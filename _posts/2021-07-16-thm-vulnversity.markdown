@@ -12,7 +12,7 @@ Writeup on the TryHackMe room "Vulnversity".
 Vulnversity is a **free** easy training CTF box from TryHackMe which provides a guided introduction to reconnaissance, reverse web-shell upload and privilege escalation.
 
 Our first task (after deploying the machine) is to use the port scanning utility [nmap](https://nmap.org/) to check for open ports.
-*Note: The IP may change on different deployments*
+*Note: The IP may change on different deployments.*
 
 We are instructed to use the ```-sV``` parameter, which will attempt to determine the version of the services running.
 
