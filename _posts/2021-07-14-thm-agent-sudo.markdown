@@ -36,7 +36,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.20 seconds
 
 Checking out the site on port 80 we have the following:
 
-![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
+![]({{site.baseurl}}/assets/2021-07-14-12-00-22.png)
 
 The mention of ```user-agent``` is probably a hint.
 ```User-Agent``` is one of the headers used for sending HTTP requests.
