@@ -5,7 +5,7 @@ date:   2021-07-16 17:55:43 +0100
 categories: post update
 ---
 
-Writeup on the TryHackMe room "Agent Sudo".
+Writeup on the TryHackMe room "Vulnversity".
 
 [Link to room.](https://tryhackme.com/room/vulnversity)
 
