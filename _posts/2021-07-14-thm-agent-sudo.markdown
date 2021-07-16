@@ -12,8 +12,8 @@ Writeup on the TryHackMe room "Agent Sudo".
 Running an -sS nmap on the server IP shows three ports open; 21, 22 and 80.
 We get more information about the services on these ports with the -sC -sV scan, specifying only these discovered ports.
 
-```
-udo nmap -sC -sV -oN nmap 10.10.86.99
+```bash
+sudo nmap -sC -sV -oN nmap 10.10.86.99
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-14 11:50 IST
 Nmap scan report for 10.10.86.99
 Host is up (0.036s latency).
