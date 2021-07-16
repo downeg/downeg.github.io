@@ -167,20 +167,29 @@ This provides some valuable information. We know that the server is processing P
 
 At the page ```http://10.10.95.113:3333/internal/index.php``` we can upload files, however files with the ```.php``` file extension are not allowed.
 
+![]({{site.baseurl}}/assets/vulnversity_ext_not_allowed.png)
+
 We are tasked with fuzzing the upload form using [BurpSuite](https://portswigger.net/burp)'s Intruder to find out what file extensions are accepted.
 
 Using the hinted extension list ```php, php3, php4, php5, phtml``` we set our payload position and start the attack.
 
+![]({{site.baseurl}}/assets/vulnversity_burp_payload.png)
 
 From this attack is seems that we can upload ```.phtml``` files as the response length is different.
+
+![]({{site.baseurl}}/assets/vulnversity_intruder_result.png)
+
 A quick test from the web page shows this to be true.
 
-![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
-![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
+![]({{site.baseurl}}/assets/vulnversity_upload_successful.png)
+
+![]({{site.baseurl}}/assets/vulnversity_uploads_file_listing.png)
 
 The recommended reverse shell for this box is the [pentestmonkey/php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) on GitHub.
 
 The script will need to be modified to connect to the IP our local machine with the port netcat will be listening on. Once the extension is changed to ```.phtml``` the script can be uploaded. 
+
+
 
 With netcat listening on our local host on the configured port we can execute the reverse shell payload by pointing our browser to the uploaded file. It will be uploaded to the ```/internal/uploads/``` directory.
 
@@ -257,4 +266,4 @@ $
 
 One final modification to the ExecStart line to cat the contents of that file to our output file and we have the root flag.
 
-![]({{site.baseurl}}/_assets/2021-07-14-12-00-22.png)
+![]({{site.baseurl}}/assets/vulnversity_root_flag.png)

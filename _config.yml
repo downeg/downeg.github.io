@@ -35,7 +35,7 @@ plugins:
 #  - jekyll-feed
   
 minima:
-  skin: my_dark
+  skin: dark
   social_links:
     twitter: _downeg
     github:  downeg
