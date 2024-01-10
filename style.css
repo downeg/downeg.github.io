@@ -2,6 +2,7 @@
     --prompt: #6610f2;
     --command: #5ebec4;
     --console: #fdf5df;
+    --output: #abf62d;
     --text: #17a2b8;
     --light: #f8f9fa;
     --dark: #343a40;
@@ -19,7 +20,7 @@
   .prompt {color: var(--prompt);}
   .command {color: var(--command)}
   .ip {color: var(--ip);}
-  .output {color: var(--light)}
+  .output {color: var(--output)}
   .code {color: var(--light)}
   .tableLeft { background-color: var(--black); color: var(--text)}
   .tableRight { background-color: var(--black); color: var(--text); text-align: right;}
