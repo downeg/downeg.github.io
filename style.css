@@ -16,7 +16,7 @@
   .header { margin: auto; width: 50%; padding: 10px; color: var(--text)}
   .wrapper { margin: auto; width: 50%; padding: 10px;}
   .text {text-align: justify; background-color: var(--dark); color: var(--text)}
-  .console {text-align: left; background-color: var(--console); padding: 10px; overflow: auto;}
+  .console {text-align: left; background-color: var(--console); padding: 0px; overflow: auto;}
   .prompt {color: var(--prompt);}
   .command {color: var(--command)}
   .ip {color: var(--ip);}
