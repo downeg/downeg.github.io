@@ -1,12 +1,12 @@
 :root {
     --prompt: #6610f2;
-    --command: #16e747;
-    --console: #6c757d;
+    --command: #5ebec4;
+    --console: #fdf5df;
     --text: #17a2b8;
     --light: #f8f9fa;
     --dark: #343a40;
     --black: #000000;
-    --ip: #582f08;
+    --ip: #f92c85;
   }
 
   .navbar {list-style-type: none; margin: 0; padding: 0 ;}
