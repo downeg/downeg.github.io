@@ -243,6 +243,7 @@ Papers: No Results
         opt                                                     NO ACCESS
         IPC$                                                    NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
         ADMIN$                                                  NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+
 <span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
 └─$</span> <span class="command"> crackmapexec smb <span class="ip">10.129.22.206</span> -u '' -p '' --shares</span>
 SMB         10.129.22.206   445    LAME             [*] Unix (name:LAME) (domain:hackthebox.gr) (signing:False) (SMBv1:True)
@@ -266,7 +267,7 @@ SMB         10.129.22.206   445    LAME             ADMIN$                      
 └─$</span> <span class="command"> smbclient --no-pass //<span class="ip">10.129.22.206</span>/tmp</span>
 Anonymous login successful
 Try "help" to get a list of possible commands.
-smb: \> dir
+<span class="prompt">smb: \> <span class="command">dir</span></span>
     .                                   D        0  Mon Jan  8 12:55:56 2024
     ..                                 DR        0  Sat Oct 31 07:33:58 2020
     orbit-makis                        DR        0  Mon Jan  8 11:25:31 2024
@@ -279,7 +280,7 @@ smb: \> dir
     vgauthsvclog.txt.0                  R     1600  Mon Jan  8 08:49:14 2024
 
                 7282168 blocks of size 1024. 5385248 blocks available
-<span class="command">smb: \></span></pre>
+<span class="prompt">smb: \></span></pre>
             </div>
             <div class="wrapper text">
                 <p>Checking the SAMBA version for vulnerabilities we find it is vulnerable to a 'username' map script command execution exploit.</p>
