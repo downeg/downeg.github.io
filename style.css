@@ -1,13 +1,13 @@
 :root {
-    --prompt: #6610f2;
+    --prompt: #facd3d;
     --command: #5ebec4;
-    --console: #fdf5df;
+    --console: #181818;
     --output: #abf62d;
     --text: #17a2b8;
     --light: #f8f9fa;
     --dark: #343a40;
     --black: #000000;
-    --ip: #f92c85;
+    --ip: #e60576;
   }
 
   .navbar {list-style-type: none; margin: 0; padding: 0 ;}
