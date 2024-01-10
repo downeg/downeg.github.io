@@ -1,0 +1,25 @@
+:root {
+    --prompt: #6610f2;
+    --command: #16e747;
+    --console: #6c757d;
+    --text: #17a2b8;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --black: #000000;
+    --ip: #582f08;
+  }
+
+  .navbar {list-style-type: none; margin: 0; padding: 0 ;}
+  .navbarLink {display: block; background-color: var(--light); text-align: center; width: 150px; border: 1px solid var(--black); text-decoration: none;}
+  .body { background-color: var(--black);}
+  .header { margin: auto; width: 50%; padding: 10px; color: var(--text)}
+  .wrapper { margin: auto; width: 50%; padding: 10px;}
+  .text {text-align: justify; background-color: var(--dark); color: var(--text)}
+  .console {text-align: left; background-color: var(--console); padding: 10px; overflow: auto;}
+  .prompt {color: var(--prompt);}
+  .command {color: var(--command)}
+  .ip {color: var(--ip);}
+  .output {color: var(--light)}
+  .code {color: var(--light)}
+  .tableLeft { background-color: var(--black); color: var(--text)}
+  .tableRight { background-color: var(--black); color: var(--text); text-align: right;}
