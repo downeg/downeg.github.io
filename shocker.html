@@ -6,10 +6,12 @@
     </head>
     <body class="body">
         <header>
-            <div class=""wrapper">
+            <p style="display: inline; text-align: right; color:white;">UNDER CONSTRUCTION</p>
+            <div class="wrapper">
                 <ul class="navbar">
-                    <li><a href="lame.html"  class="navbarLink">LAME</a></li>
-                    <li><a href="shocker.html"  class="navbarLink">SHOCKER</a></li>
+                    <li class="navbarLink"><a href="lame.html">LAME</a></li>
+                    <li class="navbarLink"><a href="shocker.html">SHOCKER</a></li>
+                    <li class="navbarLink"><a href="bashed.html">BASHED</a></li>
                 </ul>
             </div>
         </header>
@@ -52,7 +54,7 @@
             </div>
             <div class="wrapper text">
                 <h1>INTRODUCTION</h1>
-                <h2>The Shellshock Vulnerability</h2>
+                <h2>The Shellshock vulnerability CVE-2014-6271</h2>
                 <p>Shellshock is a family of security bugs in the Bash shell, the first of which (CVE-2014-6271) was disclosed on 24th Sept 2014. The vulnerability occurs because Bash has the ability to store one-line shell scripts as environment variables. These environment variables can hold arbitrary commands to be run. If an attacker can control the contents of these environment variables, then they can control the commands to be run.</p>
                 <p>Web servers using the Common Gateway Interface (CGI) store certain HTTP Request Headers as environment variables. All HTTP Request Headers can be manipulated by an attacker. Therefore it is a trivial task for an attacker to include a specially crafted HTTP Request Header in requests sent to a vulnerable web server.</p>
                 <p>Bash supports exporting not just shell variables, but also exporting shell functions to other bash instances. Certain Bash versions use an environment variable named by the function name, and a function definition starting with <code class="code">() {</code> in the variable value to propagate function definitions through the environment. The vulnerability occurs because Bash does not stop after processing the function definition; it continues to parse and execute shell commands following the function definition. For example, an environment variable setting of</p>
@@ -73,8 +75,9 @@
                 DHCP, OpenSSH and other applications and services could also be exploited using shellshock.</p>
             </div>
             <div class="wrapper text">
-                <p>The machine starts with the IP address 10.129.21.111.</p>
                 <h1>RECON</h1>
+                <p><code>The victim machine has the IP: <span class="ip">10.129.21.111</span><br>The attack machine has the IP: <span class="ip">10.10.14.212</span></code></p>
+
                 <p>Start with nmap.</p>
             </div>
             <div class="wrapper console output">

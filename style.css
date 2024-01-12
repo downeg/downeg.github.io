@@ -11,7 +11,7 @@
   }
 
   .navbar {list-style-type: none; margin: 0; padding: 0 ;}
-  .navbarLink {display: block; background-color: var(--light); text-align: center; width: 150px; border: 1px solid var(--black); text-decoration: none;}
+  .navbarLink {display: inline; background-color: var(--light); text-align: center; width: 150px; border: 1px solid var(--black); text-decoration: none; padding: 5px;}
   .body { background-color: var(--black);}
   .header { margin: auto; width: 50%; padding: 10px; color: var(--text)}
   .wrapper { margin: auto; width: 50%; padding: 10px;}
@@ -21,6 +21,7 @@
   .command {color: var(--command)}
   .ip {color: var(--ip);}
   .output {color: var(--output)}
-  .code {color: var(--light)}
+  .code {color: var(--light); text-align: left;}
   .tableLeft { background-color: var(--black); color: var(--text)}
   .tableRight { background-color: var(--black); color: var(--text); text-align: right;}
+  .scroll {overflow: auto;}
