@@ -65,7 +65,7 @@
 					to the Subject in the CA's database. The SSL certificate and the digital signature are given to the Subject.</p>
 
 				<p>The Subject can then make the signed certificate available to the public. The digital signature can be used to 
-					sign anything from emails to files to software packages<span class="command">*</span> provided by the Subject. Any Client can use the 
+					sign anything from emails to files to software packages<span class="prompt">*</span> provided by the Subject. Any Client can use the 
 					certificate to confirm the identity of the Subject. The certificate contains information about the CA who 
 					performed the identity verification of the Subject. If the Client trusts the CA then the Client can create 
 					their own hash of the certificate using the same hashing algorithm that the CA used to create the digital 
@@ -89,7 +89,7 @@
 			be trusted and would need to be added to the CRL.</p>
             </div>
 	    <div class="wrapper text">
-		    <span class="command">
+		    <span class="prompt">
 			    <p>* This is how the SolarWinds hack of 2020 was so effective in it's widespread delivery. The malicious code was injected into the 
 				    build process before the compiled package was signed. With the malware included in the signed software, the software was implicitly 
 				    trusted by upgrade and installation processes of customers of SolarWinds. One of the first steps performed by SolarWinds once they 
