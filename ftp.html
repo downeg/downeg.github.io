@@ -88,79 +88,41 @@
                 <p><code class="code">nmap -p 21 --script=banner &lttarget-IP&gt</code></p>
                 <p><u>3. Enumerating Users</u></p>
                 <p>Anonymous access or default credentials can be a significant vulnerability. Try logging in with the username anonymous and any password. Many FTP servers allow this by default:</p>
-
-ftp <target-IP>
-Use anonymous as the username and any email address as the password.
-
-4. Identifying Vulnerabilities
-
-Once you have basic information about the FTP service, use vulnerability databases and tools to identify known vulnerabilities. Searchsploit from Exploit-DB can be very useful:
-
-searchsploit ftp <service-version>
-
-5. Using Automated Tools
-
-Automated tools can help streamline the reconnaissance process. It is important to be aware that automated tools can be detected by network defenders through unusual User-Agent strings or behaviors that deviate from normal traffic patterns. Additionally, the high volume of packets sent by these tools during scanning and enumeration can trigger intrusion detection systems (IDS) and raise red flags with network monitoring tools. Two popular automated tools that can be used to fingerprint FTP servers are Nikto and Metasploit.
-
-Nikto is included in Kali Linux and can be run on the default FTP port as follows:
-
-nikto -host <target-IP> -p 21
-
-Metasploit can be used for a more in-depth analysis and exploitation:
-
-msfconsole
-use auxiliary/scanner/ftp/ftp_version
-set RHOSTS <target-IP>
-run
-
-Nmap can be run against the target(s) with the default scripts and Nmap Scripting Engine scripts included with the command. The NSE scripts include scripts for brute forcing, so may take a long time to complete and are very noisy on the wire:
-
-nmap -p 21 -sV -sC --script==ftp* <target-IP-range>
-
-Performing reconassaince on an FTP server that uses SSL/TLS encryption involves identifying the specific characteristics of the SSL/TLS implementation to gather information about the server. This process includes analyzing the server's SSL/TLS certificate, the supported ciphers, and the protocol versions. Here’s how you can do it:
-1. Using Nmap with SSL/TLS Scripts
-
-Nmap has several built-in scripts that can help fingerprint SSL/TLS implementations on FTP servers.
-SSL/TLS Certificate Analysis
-
-nmap --script ssl-cert -p 21 <target-IP>
-
-This script retrieves and displays the SSL/TLS certificate details, such as the issuer, subject, validity period, and any associated metadata. This information can help identify the software and version of the FTP server.
-
-SSL/TLS Cipher Suites and Protocols
-
-nmap --script ssl-enum-ciphers -p 21 <target-IP>
-
-This script enumerates the supported cipher suites and protocols (e.g., SSLv2, SSLv3, TLSv1.0, TLSv1.1, TLSv1.2, TLSv1.3) used by the FTP server. The specific combination of supported ciphers and protocols can provide clues about the underlying server software and version.
-
-2. Using SSLyze
-
-SSLyze is a powerful tool specifically designed to analyze SSL/TLS configurations.
-Running SSLyze
-
-sslyze --regular <target-IP>:21
-
-SSLyze performs a thorough analysis of the SSL/TLS configuration, including certificate details, supported protocols, cipher suites, and potential vulnerabilities (e.g., Heartbleed, POODLE).
-
-3. Manual Analysis with OpenSSL
-
-OpenSSL can be used to manually connect to the FTP server and retrieve SSL/TLS information.
-Retrieving SSL/TLS Certificate
-
-openssl s_client -connect <target-IP>:21 -starttls ftp
-
-This command initiates a connection to the FTP server and starts an SSL/TLS handshake. The output includes detailed information about the server’s SSL/TLS certificate.
-
-Listing Supported Cipher Suites
-
-openssl s_client -connect <target-IP>:21 -starttls ftp -cipher 'ALL'
-
-This command attempts to connect using different cipher suites to determine which ones are supported by the server.
-
-4. Analyzing Server Responses
-
-In addition to using tools, analyzing the server’s responses during the SSL/TLS handshake can provide valuable fingerprinting information. Differences in response times, specific error messages, and the order of offered cipher suites can all hint at the server software and version.
-
+                <p><code class="code">ftp &lttarget-IP&gt</code>
+                <p>Use anonymous as the username and any email address as the password.</p>
+                <p><u>4. Identifying Vulnerabilities</u></p>
+                <p>Once you have basic information about the FTP service, use vulnerability databases and tools to identify known vulnerabilities. Searchsploit from Exploit-DB can be very useful:</p>
+                <p><code class="code">searchsploit ftp &ltservice-version&gt</code></p>
+                <p><u>5. Using Automated Tools</u></p>
+                <p>Automated tools can help streamline the reconnaissance process. It is important to be aware that automated tools can be detected by network defenders through unusual User-Agent strings or behaviors that deviate from normal traffic patterns. Additionally, the high volume of packets sent by these tools during scanning and enumeration can trigger intrusion detection systems (IDS) and raise red flags with network monitoring tools. Two popular automated tools that can be used to fingerprint FTP servers are Nikto and Metasploit.</p>
+                <p>Nikto is included in Kali Linux and can be run on the default FTP port as follows:</p>
+                <p><code class="code">nikto -host &lttarget-IP&gt -p 21</code>
+                <p>Metasploit can be used for a more in-depth analysis and exploitation:</p>
+                <p><code class="code">msfconsole |use auxiliary/scanner/ftp/ftp_version | set RHOSTS &lttarget-IP&gt | run</code>
+                <p>Nmap can be run against the target(s) with the default scripts and Nmap Scripting Engine scripts included with the command. The NSE scripts include scripts for brute forcing, so may take a long time to complete and are very noisy on the wire:</p>
+                <p><code class="code">nmap -p 21 -sV -sC --script==ftp* &lttarget-IP-range&gt</code>
+                <h2>Performing Reconnaissance with TLS/SSL</h2>
+                <p>Performing reconassaince on an FTP server that uses SSL/TLS encryption involves identifying the specific characteristics of the SSL/TLS implementation to gather information about the server. This process includes analyzing the server's SSL/TLS certificate, the supported ciphers, and the protocol versions. Here's how you can do it:</p>
+                <p><u>1. Using Nmap with SSL/TLS Scripts</u></p>
+                <p>Nmap has several built-in scripts that can help fingerprint SSL/TLS implementations on FTP servers.</p>
+                <p><code class="code">nmap --script ssl-cert -p 21 &lttarget-IP&gt</code>
+                <p>This script retrieves and displays the SSL/TLS certificate details, such as the issuer, subject, validity period, and any associated metadata. This information can help identify the software and version of the FTP server.</p>
+                <p><code class="code">nmap --script ssl-enum-ciphers -p 21 <target-IP></code>
+                <p>This script enumerates the supported cipher suites and protocols (e.g., SSLv2, SSLv3, TLSv1.0, TLSv1.1, TLSv1.2, TLSv1.3) used by the FTP server. The specific combination of supported ciphers and protocols can provide clues about the underlying server software and version.</p>
+                <p><u>2. Using SSLyze</u></p>
+                <p>SSLyze is a powerful tool specifically designed to analyze SSL/TLS configurations.</p>
+                <p><code class="code">sslyze --regular &lttarget-IP&gt:21</code>
+                <p>SSLyze performs a thorough analysis of the SSL/TLS configuration, including certificate details, supported protocols, cipher suites, and potential vulnerabilities (e.g., Heartbleed, POODLE).</p>
+                <p><u>3. Manual Analysis with OpenSSL</u></p>
+                <p>OpenSSL can be used to manually connect to the FTP server and retrieve SSL/TLS information.</p>
+                <p>Retrieving SSL/TLS Certificate:</p>
+                <p><code class="code">openssl s_client -connect &lttarget-IP&gt:21 -starttls ftp</code>
+                <p>This command initiates a connection to the FTP server and starts an SSL/TLS handshake. The output includes detailed information about the server's SSL/TLS certificate.</p>
+                <p>Listing Supported Cipher Suites:</p>
+                <p><code class="code">openssl s_client -connect <target-IP>:21 -starttls ftp -cipher 'ALL'</code>
+                <p>This command attempts to connect using different cipher suites to determine which ones are supported by the server.</p>
+                <p><u>4. Analyzing Server Responses</u></p>
+                <p>In addition to using tools, analyzing the server's responses during the SSL/TLS handshake can provide valuable fingerprinting information. Differences in response times, specific error messages, and the order of offered cipher suites can all hint at the server software and version.</p>
             </div>
         </main>
     </body>
