@@ -83,3 +83,23 @@ Since one of the checks done by the malware was to only execute if the DNS name 
 ## Conclusion
 
 The severity and complexity of the SolarWinds hack and the patience and stealth of the threat actor has taught us that nation state cyber-warfare is highly motivated and highly funded with expert knowledge being used for nefarious purposes. Effectively combatting similar attacks in the future will require an industry-wide approach as well as public-private partnerships that leverage the skills, insight, knowledge, and resources of all constituents.
+
+## References
+* [NIST COMPUTER SECURITY RESOURCE CENTER Online Glossary] (https://csrc.nist.gov/glossary/term/supply_chain_attack)
+* [Highly Evasive Attacker Leverages SolarWinds Supply Chain to Compromise Multiple Global Victims With SUNBURST Backdoor] (https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwindssupply-chain-compromises-with-sunburst-backdoor)
+* [Why the SolarWinds Orion Platform?] (https://www.solarwinds.com/orion-platform)
+* [SUNSPOT: An Implant in the Build Process] (https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/)
+* [SUNBURST Additional Technical Details] (https://www.mandiant.com/resources/blog/sunburst-additional-technical-details)
+* [mandiant/sunburst_countermeasures] (https://github.com/mandiant/sunburst_countermeasures/blob/main/fnv1a_xor_hashes.txt)
+* [FireEye, Microsoft create kill switch for SolarWinds backdoor] (https://www.bleepingcomputer.com/news/security/fireeyemicrosoft-create-kill-switch-for-solarwinds-backdoor/)
+* [Deep dive into the Solorigate second-stage activation: From SUNBURST to TEARDROP and Raindrop] (https://www.microsoft.com/enus/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activationfrom-sunburst-to-teardrop-and-raindrop/)
+* [Software for Adversary Simulations and Red Team Operations] (https://www.cobaltstrike.com/)
+* [UNITED STATES SECURITIES AND EXCHANGE COMMISSION] (https://www.sec.gov/Archives/edgar/data/1370880/000137088020000037/feye20201208.htm)
+* [NIST COMPUTER SECURITY RESOURCE CENTER Online Glossary] (https://csrc.nist.gov/glossary/term/trojan_horse)
+* [Guide to Malware Incident Prevention and Handling for Desktops and Laptops] (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-83r1.pdf)
+* [SolarWinds Platform Product Features Affected by Internet Access]  (https://support.solarwinds.com/SuccessCenter/s/article/OrionPlatform-Product-Features-Affected-by-Internet-Access?language=en_US)
+* [U.S. Department of Homeland Security CISA] (https://s3.documentcloud.org/documents/20969575/wyden_response_signed.pdf)
+* [Microsoft AppLocker] (https://learn.microsoft.com/en-us/windows/security/application-security/applicationcontrol/windows-defender-application-control/applocker/applocker-overview)
+* [How SES Complete Can Protect Against Sophisticated Attacks Such As Sunburst] (https://symantec-enterpriseblogs.security.com/blogs/expert-perspectives/how-ses-complete-can-protect-againstsophisticated-attacks-such-sunburst)
+* [Nearly half of malware now use TLS to conceal communications] (https://news.sophos.com/en-us/2021/04/21/nearly-half-ofmalware-now-use-tls-to-conceal-communications/)
+
