@@ -4,16 +4,15 @@
 
 layout: default
 ---
-downeg.ie
 
-[SMB Recon](https://downeg.ie/docs/smb.html)
+[DNS Recon](https://downeg.ie/docs/dns.html) - post date: July 2024
 
-[FTP Recon](https://downeg.ie/docs/smb.html)
+[SMB Recon](https://downeg.ie/docs/smb.html) - post date: June 2024
 
-[DNS Recon](https://downeg.ie/docs/smb.html)
+[FTP Recon](https://downeg.ie/docs/ftp.html) - post date: May 2024
 
-[SolarWinds hack of 2020 Case Study](https://downeg.ie/docs/smb.html)
+[OWASP Top Ten Case Study](https://downeg.ie/docs/owasp.html) - post date: March 2024
 
-[Mirai Botnet Case Study](https://downeg.ie/docs/smb.html)
+[SolarWinds hack of 2020 Case Study](https://downeg.ie/docs/solarwinds.html) - post date: October 2023
 
-[OWASP Top Ten Case Study](https://downeg.ie/docs/owasp.html)
+[Mirai Botnet Case Study](https://downeg.ie/docs/mirai.html) - post date: October 2023
