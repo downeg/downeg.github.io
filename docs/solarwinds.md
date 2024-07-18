@@ -100,6 +100,6 @@ The severity and complexity of the SolarWinds hack and the patience and stealth 
 * [SolarWinds Platform Product Features Affected by Internet Access](https://support.solarwinds.com/SuccessCenter/s/article/OrionPlatform-Product-Features-Affected-by-Internet-Access?language=en_US)
 * [U.S. Department of Homeland Security CISA](https://s3.documentcloud.org/documents/20969575/wyden_response_signed.pdf)
 * [Microsoft AppLocker](https://learn.microsoft.com/en-us/windows/security/application-security/applicationcontrol/windows-defender-application-control/applocker/applocker-overview)
-* [How SES Complete Can Protect Against Sophisticated Attacks Such As Sunburst](https://symantec-enterpriseblogs.security.com/blogs/expert-perspectives/how-ses-complete-can-protect-againstsophisticated-attacks-such-sunburst)
+* [How SES Complete Can Protect Against Sophisticated Attacks Such As Sunburst](https://symantec-enterprise-blogs.security.com/expert-perspectives/how-ses-complete-can-protect-against-sophisticated-attacks-such-sunburst)
 * [Nearly half of malware now use TLS to conceal communications](https://news.sophos.com/en-us/2021/04/21/nearly-half-ofmalware-now-use-tls-to-conceal-communications/)
 
