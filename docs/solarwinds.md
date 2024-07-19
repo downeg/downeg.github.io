@@ -5,7 +5,8 @@ date:   2023-11-10 09:00:00 +0000
 categories: solarwinds malware university assignment
 ---
 
-# SolarWinds Hack of 2020 Case Study (University assignment)
+# SolarWinds Hack of 2020 Case Study
+#### (University assignment)
 
 ## Executive Summary
 The SolarWinds Attack 2020, known as SUNBURST, was a supply chain cyber-attack where a backdoor was inserted into the SolarWinds Orion platform to allow the subsequent install of remote access tools. Supply chain attacks "allow the adversary to utilize implants or other vulnerabilities inserted prior to installation in order to infiltrate data, or manipulate information technology". In the SolarWinds attack threat actors gained access to the SolarWinds internal network and a malicious tool was deployed into the build environment to inject a backdoor into the SolarWinds Orion Platform. With the backdoor being injected before the build cycle the compiled binary (including the backdoor) was digitally signed by SolarWinds ensuring that it was trusted by customer's using the infected build to perform updates.

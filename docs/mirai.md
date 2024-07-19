@@ -5,7 +5,8 @@ date:   2023-11-10 09:00:00 +0000
 categories: mirai botnet malware university assignment
 ---
 
-# Mirai Botnet Case Study (University assignment)
+# Mirai Botnet Case Study
+#### (University assignment)
 
 ## Executive Summary
 In September 2016 a simple piece of malware highlighted the prevalence of one of the oldest vulnerabilities in technology: the default password. The Mirai botnet was responsible for some of the biggest Distributed Denial of Service (DDoS) attacks of its time.
