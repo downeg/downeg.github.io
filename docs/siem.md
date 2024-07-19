@@ -114,18 +114,23 @@ By consolidating and collecting logs from diverse sources within the environment
 
 #### How are the following items important to SIEM implementation?
 * ***Data Ownership***
+
 Data ownership is critical in SIEM solutions as it determines accountability for the security and privacy of sensitive and personally identifiable information (PII). Clear data ownership policies ensure that the right individuals or teams are responsible for managing, protecting, and analysing security data, helping to maintain data integrity and compliance. SIEM systems can be used to detect the storage and transmission of PII to ensure compliance standards are being met.
 
 * ***Log Sources***
+
 Effective log sources are essential components of a SIEM system, as they provide insight into system activities, user behaviour, and security events throughout the IT infrastructure. The breadth and depth of log sources significantly influence the SIEM's capacity to detect threats, conduct correlation analysis, and derive actionable intelligence for incident response.
 
 * ***Log Processing***
+
 Log processing serves as the fundamental operation of a SIEM, converting raw log data into organized and actionable insights, facilitating streamlined threat detection and incident handling. Successful log processing incorporates parsing, normalization, and enrichment methods, amplifying the SIEM's capacity to link events, recognize trends, and extract valuable insights from extensive log datasets.
 
 * ***Threat Assessment***
+
 Assessing threats in a SIEM system entails gauging the severity, impact, and potential risk of identified threats, allowing for prioritized incident response and resource allocation. Through comprehensive threat assessments, SIEM systems can pinpoint and prioritize high-risk threats, resulting in enhanced threat mitigation and a strengthened security stance.
 
 * ***Rule integration***
+
 Rule integration is a requirement for a SIEM as it allows for the implementation of specific criteria and conditions that dictate how security events are analysed, categorized, and responded to. Effective rule integration enables the SIEM to automate threat detection, streamline incident handling processes, and adapt to evolving security threats and trends.
 
 >SIEM – Threat Hunting
