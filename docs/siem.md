@@ -142,7 +142,7 @@ Assessing threats in a SIEM system entails gauging the severity, impact, and pot
 
 Rule integration is a requirement for a SIEM as it allows for the implementation of specific criteria and conditions that dictate how security events are analysed, categorized, and responded to. Effective rule integration enables the SIEM to automate threat detection, streamline incident handling processes, and adapt to evolving security threats and trends.
 
->SIEM – Threat Hunting
+> ## SIEM – Threat Hunting
 
 #### What is threat hunting?
 
@@ -171,7 +171,7 @@ When aggregating logs from various sources within an IT environment, one of the 
 Moreover, it's essential to consider the timeliness of log data for effective threat hunting. Engaging in threat hunting using outdated logs from systems that have undergone upgrades or patching can lead to false positives, undermining the validity of the findings and consuming valuable time and resources. Therefore, organizations must prioritize real-time or near-real-time log collection to ensure the relevance and accuracy of data for threat detection and analysis during threat hunting engagements.
 
 
->Example Organisation – Case Study
+> ## Example Organisation – Case Study
 
 #### Identify the organization's security needs, compliance requirements, and budget constraints.
 
@@ -215,7 +215,7 @@ Splunk offers various pricing models, such as workload pricing, ingest pricing, 
 
 # Part 2: Attack Identifiers and Rules
 
-#### Identify specific indicators of compromise and/or identifying attributes for each of the 3 attacks you discussed that can be used with signature-based detection strategies.
+> ## Identify specific indicators of compromise and/or identifying attributes for each of the 3 attacks you discussed that can be used with signature-based detection strategies.
 
 The first OWASP Top Ten Vulnerability chosen for Assignment 1 was ```A01:2021 - Broken Access Control```, focusing specifically on ```Insecure Direct Object Reference (IDOR)``` attacks. In an IDOR attack, a threat actor manipulates object references within the application to gain unauthorized access to resources. For example, altering a user ID within a web URL could allow viewing information about different users if proper authentication mechanisms were not in place to prevent this. The key indicator of such an attack in the logs was the occurrence of repeated HTTP 404 response errors associated with a specific path, for example the ```profile``` URL. In Linux environments, these webserver logs would be found in the Apache access log located at ```/var/log/apache2/access.log```. For Microsoft IIS webservers, the log files would reside in the ```C:\inetpub\logs\LogFiles\``` directory.
 
@@ -229,13 +229,14 @@ The third OWASP Top Ten Vulnerability chosen was ```A10:2021 - Server-Side Reque
 IMAGE MISSING
 Example of internal hostnames in the URL during an SSRF attack.
 
-#### Discuss how the attack indicator analysis can be used with Sigma and YARA approaches to improve attack detection and how they are implemented in a SIEM architecture.
+> ## Discuss how the attack indicator analysis can be used with Sigma and YARA approaches to improve attack detection and how they are implemented in a SIEM architecture.
 
 The Sigma rule format serves as a standardized method for security professionals to share detections of malicious or dangerous behaviour. It offers a flexible descriptive language designed for writing abstract vendor-agnostic rules that detail specific indicators of compromise (IoC) found within logs. Given the varying formats and syntax used by different SIEM vendors for search queries and alert definitions (e.g., Splunk Search Processing Language), Sigma was developed as an open-source standard. This allows a single Sigma detection rule to be utilized across various SIEM platforms, promoting consistency and interoperability in the cybersecurity landscape. By encapsulating an IoC within a Sigma rule, it can be easily shared within the cybersecurity community and translated into different SIEM languages using encoding tools by interested parties.
 
 YARA is a tool used to identify and categorize malware by analysing patterns and distinct characteristics. YARA rules are crafted in a specific syntax, allowing security analysts to outline patterns, strings, and conditions indicative of malware presence. Typically, rules are structured into two main sections: the strings definition and the condition. The strings definition encompasses the parameters to be scanned for within a log file, i.e., the IoC present in the log file, while the condition section comprises a Boolean expression telling under which circumstances a file or process satisfies the rule or not.
 
-#### Use the analysis of SIEMs in part 1 and the identified indicators of the attack in part 2 to write Sigma rules to detect each of the three attacks from Assignment 1. Convert the rule into the SIEM logic for your chosen SIEM in Part 1
+> ## Use the analysis of SIEMs in part 1 and the identified indicators of the attack in part 2 to write Sigma rules to detect each of the three attacks from Assignment 1. Convert the rule into the SIEM logic for your chosen SIEM in Part 1
+
 This Sigma rule is designed to detect 404 responses triggered by invalid user IDs, aiding in the identification of Insecure Direct Object Reference (IDOR) attacks targeting the web application. The rule ID is a randomly generated UUID. The MITRE tag associated with this rule corresponds to the Initial Access -> User Accounts technique. The rule searches webserver access logs for URLs requested via the GET method that include the string ```profile?user=``` and result in an ```HTTP 404 response```.
 
 IMAGE MISSING
