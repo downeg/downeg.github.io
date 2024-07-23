@@ -5,13 +5,13 @@
 layout: default
 ---
 
-[DNS Recon](https://downeg.ie/docs/dns.html) - post date: July 2024
+[DNS Reconnaissance](https://downeg.ie/docs/dns.html) - post date: July 2024
 
-[SMB Recon](https://downeg.ie/docs/smb.html) - post date: June 2024
+[SMB Reconnaissance](https://downeg.ie/docs/smb.html) - post date: June 2024
 
-[FTP Recon](https://downeg.ie/docs/ftp.html) - post date: May 2024
+[FTP Reconnaissance](https://downeg.ie/docs/ftp.html) - post date: May 2024
 
-[SIEM](https://downeg.ie/docs/siem.html) - post date: May 2024
+[Detection Engineering with SIEMs, Zui, Sigma and YARA](https://downeg.ie/docs/siem.html) - post date: May 2024
 
 [OWASP Top Ten Case Study](https://downeg.ie/docs/owasp.html) - post date: March 2024
 
