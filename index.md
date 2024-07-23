@@ -13,6 +13,8 @@ layout: default
 
 [Detection Engineering with SIEMs, Zui, Sigma and YARA](https://downeg.ie/docs/siem.html) - post date: May 2024
 
+[Hack The Box Walkthrough: Lame](https://downeg.ie/docs/lame.html) - post date: April 2024
+
 [OWASP Top Ten Case Study](https://downeg.ie/docs/owasp.html) - post date: March 2024
 
 [Public Key Infrastructure (PKI)](https://downeg.ie/docs/pki.html) - post date: February 2024
