@@ -136,7 +136,7 @@ These three initiatives will work towards improving our resilience and will enab
 Thanks,
 CEO of The Bank
 
-## REFERENCES
+### References.
 * [Digital Operational Resilience Act (DORA)](https://www.digital-operational-resilienceact.com/DORA_Article_5_(Proposal).html)
 * [General requirements for the performance of digital operational resilience testing](https://www.dora-info.eu/article-24/)
 * [DORA, Article 15, ICT-related incident management process.](https://www.digital-operational-resilienceact.com/DORA_Article_15_(Proposal).html)
