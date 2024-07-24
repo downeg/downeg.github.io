@@ -5,6 +5,8 @@ date:   2023-10-09 09:00:00 +0000
 categories: nist ransomware phishing university assignment
 ---
 
+{: style="background-color:powderblue" }
+
 # Cybersecurity Standards & Risks | NIST Case Study
 ##### (University assignment)
 
