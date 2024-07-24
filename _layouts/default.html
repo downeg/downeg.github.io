@@ -15,13 +15,18 @@
     <![endif]-->
 
     {% include head-custom.html %}
+    <!-- Custom styles -->
+    <style>    
+      section {background: white;}
+      p {background-color: white;}
+    </style>
   </head>
   <body>
     <div class="wrapper">
       <header {% unless site.description or site.github.project_tagline %} class="without-description" {% endunless %}>
         <h1><a href="https://downeg.ie">{{ site.title | default: site.github.repository_name }}</a></h1>
         {% if site.description or site.github.project_tagline %}
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
+          <h4>{{ site.description | default: site.github.project_tagline }}</h4>
         {% endif %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
 <!--        <ul>
@@ -33,10 +38,7 @@
         </ul>
         -->
       </header>
-        <style>
-          body {background: white;}
-          p {background-color: white;}
-        </style>
+
       <section>
 
       {{ content }}
@@ -44,10 +46,10 @@
       </section>
     </div>
     <footer>
-    {% if site.github.is_project_page %}
+    <!-- {% if site.github.is_project_page %}
       <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
     {% endif %}
-      <p>Hosted on GitHub Pages</p>
+      <p>Hosted on GitHub Pages</p> -->
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
   </body>

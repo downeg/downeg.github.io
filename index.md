@@ -5,7 +5,7 @@
 layout: default
 ---
 
-[DNS Reconnaissance](https://downeg.ie/docs/dns.html) - post date: July 2024
+<!-- [DNS Reconnaissance](https://downeg.ie/docs/dns.html) - post date: July 2024 -->
 
 [SMB Reconnaissance](https://downeg.ie/docs/smb.html) - post date: June 2024
 
