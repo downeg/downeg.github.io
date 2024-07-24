@@ -17,7 +17,7 @@
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="wrapper" style="background-color:powderblue">
+    <div class="wrapper">
       <header {% unless site.description or site.github.project_tagline %} class="without-description" {% endunless %}>
         <h1><a href="https://downeg.ie">{{ site.title | default: site.github.repository_name }}</a></h1>
         {% if site.description or site.github.project_tagline %}
@@ -33,7 +33,7 @@
         </ul>
         -->
       </header>
-      <section>
+      <section style="background-color:white">
 
       {{ content }}
 
