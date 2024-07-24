@@ -1,11 +1,11 @@
 ---
 layout: default
-title:  "Mirai Botnet Case Study"
-date:   2023-11-10 09:00:00 +0000
+title:  "# Cybersecurity Standards & Risks | GDPR/DORA Case Study"
+date:   2023-12-25 09:00:00 +0000
 categories: gdpr dora university assignment
 ---
 
-# Cybersecurity Standards & Risks 
+# Cybersecurity Standards & Risks | GDPR/DORA Case Study
 #### (University assignment)
 
 > Letters from the CEO of a fictional bank (incorporated in Ireland, regulated by the Central Bank of Ireland.) to the board of directors regarding the cybersecurity posture of the company and discussing two cybersecurity incidents.
