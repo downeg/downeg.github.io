@@ -19,6 +19,10 @@ layout: default
 
 [Public Key Infrastructure (PKI)](https://downeg.ie/docs/pki.html) - post date: February 2024
 
+[GDPR/DORA Case Study](https://downeg.ie/docs/gdpr_dora.html) - post date: December 2023
+
 [SolarWinds hack of 2020 Case Study](https://downeg.ie/docs/solarwinds.html) - post date: October 2023
 
 [Mirai Botnet Case Study](https://downeg.ie/docs/mirai.html) - post date: October 2023
+
+[NIST Case Study](https://downeg.ie/docs/nist.html) - post date: October 2023
