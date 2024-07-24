@@ -10,7 +10,7 @@ categories: gdpr dora university assignment
 
 > Letters from the CEO of a fictional bank (incorporated in Ireland, regulated by the Central Bank of Ireland.) to the board of directors regarding the cybersecurity posture of the company and discussing two cybersecurity incidents.
 
-## Summary of risk environment and recommendations for NIST CSF (August 2023)
+> ## Summary of risk environment and recommendations for NIST CSF (August 2023)
 
 Dear board members,
 
@@ -49,7 +49,7 @@ It is of utmost importance that the IT cyber defence strategies are aligned with
 Thanks,
 CEO of The Bank
 
-## REFERENCES
+### References.
 * [General Data Protection Regulation](https://gdpr.eu/tag/gdpr/)
 * [ Official Journal of the European Union](https://eurlex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0679)
 * [Principles relating to processing of personal data](https://gdpr.eu/article-5-how-to-process-personal-data/)
@@ -65,7 +65,7 @@ CEO of The Bank
 * [Bank of Ireland Hit With a €750,000 GDPR Fine](https://www.itgovernance.eu/blog/en/bank-of-ireland-hit-with-a-e750000-gdpr-fine)
 * [Inquiry into Bank of Ireland 365 ('BOI')](https://www.dataprotection.ie/en/resources/law/decisions/bank-of-ireland365-%28BOI%29-February-2023)
 
-## Cyber incident report: Stolen laptop (September 2023)
+> ## Cyber incident report: Stolen laptop (September 2023)
 
 Dear board members,
 
@@ -97,7 +97,7 @@ As part of our improved NIST CSF Profile this coming year we will target basic s
 Thanks,
 CEO of The Bank
 
-## REFERENCES
+### References.
 * [Principles relating to processing of personal data](https://gdpr-info.eu/art-5-gdpr/)
 * [PR.DS-1: Data-at-rest is protected](https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/prds-1/)
 * [PR.AC-1: Identities and credentials](https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ac/prac-1/)
@@ -105,7 +105,7 @@ CEO of The Bank
 * [NIST 800-53 AC-17: Remote Access](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/)
 * [PR.AT: Awareness and Training](https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-at/)
 
-## Cyber incident report: Online Loans Application system compromised. (10 October 2023 )
+> ## Cyber incident report: Online Loans Application system compromised. (10 October 2023 )
 
 Dear board members,
 
