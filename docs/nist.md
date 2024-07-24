@@ -10,7 +10,7 @@ categories: nist ransomware phishing university assignment
 
 #### Introduction.
 
-{: style="text-align: justify" }
+{: style="text-align: justify; background-color:powderblue" }
 The use-case company is a software developer named GoodSoftware. It is a US based medium sized company with over 1000 employees and about $40 million in annual revenue. They have a single site in four countries: the US, Ireland, the Netherlands, and New Zealand. Each site has a marketing department, a sales department and a billing department. The software development is done in the US and Ireland offices. There is a dedicated cyber-security team based in the Irish office. Most of GoodSoftware’s business communication is via phone and email. New customers are found through the GoodSoftware website, email campaigns and the company’s well-respected name. In a recent risk management initiative, the biggest business risks to GoodSoftware were determined to be the loss of their intellectual property and a loss of customers by having a bad reputation in protecting against cyber threats.
 
 {: style="text-align: justify" }
